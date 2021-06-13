@@ -90,7 +90,7 @@ def geturl(id):
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html",x=False)
 
 
 @app.route("/dashboard")
@@ -134,8 +134,8 @@ def signup():
             data = users(username,email,phno,password)
             db.session.add(data)
             db.session.commit()
-            return render_template("index.html",x="Sucess")
-        else : return render_template("index.html",x="Error")      
+            return render_template("index.html",x=True)
+        else : return render_template("index.html",x=False)      
             
     return render_template("index.html")
 
