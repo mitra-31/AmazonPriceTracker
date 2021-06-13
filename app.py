@@ -93,7 +93,6 @@ def home():
     return render_template("index.html")
 
 
-@login_required
 @app.route("/dashboard")
 def dashboard():
     data = geturl(session['user'])
