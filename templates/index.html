@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Tracker
+{% endblock title %}
+
+
+{% block main %}
+<style>
+    a{
+        color: aliceblue;
+        text-decoration: none;
+    }
+    a:hover{
+        color: black;
+    }
+    a#signup{
+        color: black;
+    }
+</style>
+
+<div class="row">
+    <div class="col-sm-12 mt-5 mb-5">
+        <h1 class="display-4 text-center">WELCOME TO THE AMAZON TRACKER</h1>
+    </div>
+    <div class="col-sm-12 mt-4">
+        <p class="lead text-center">Track your amazom wishlist price and get notified when the price gets down.</p>
+    </div>
+    <div class="col-sm-12 mt-5 text-center">
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Login">
+    Login
+</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Register">
+    Register
+</button>
+  <!-- Modal -->
+  <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+           
+            <form action="/login" method="POST">
+                <div class="form-group">
+                  <input type="text" name="username" class="form-control" id="exampleInputEmail1"  placeholder="Enter Username">
+                </div>
+                <div class="form-group mt-2">
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">Login</button>
+              </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="Register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="/signup" method="POST">
+                <div class="form-group mt-2">
+                  <input type="text" name="username" class="form-control" id="exampleInputEmail1"  placeholder="Enter Username">
+                </div>
+                <div class="form-group mt-2">
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1"  placeholder="Enter Email Id">
+                  </div>
+                  <div class="form-group mt-2">
+                    <input type="text" name="phno" class="form-control" id="exampleInputEmail1"  placeholder="Enter Conatct Number">
+                  </div>
+                <div class="form-group mt-2">
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+              </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+</div>
+
+{% endblock main %}

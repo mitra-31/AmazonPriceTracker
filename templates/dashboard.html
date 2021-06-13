@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Tracker
+{% endblock title %}
+
+
+{% block main %}
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="display-3 text-center mt-5 mb-3">Your wishlist</h1>
+        <div class="col-md-6">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add">
+            Add
+        </button>
+    </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Current Price</th>
+                <th scope="col">Required Price</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for i in data %}
+              <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    </div>
+</div>
+<div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+           
+            <form action="/addurl" method="POST">
+                <div class="form-group">
+                  <input type="text" name="url" class="form-control" id="exampleInputEmail1"  placeholder="Paste URL of product from amazon">
+                </div>
+                <div class="form-group mt-2">
+                  <input type="text" name="price" class="form-control" id="exampleInputPassword1" placeholder="Enter the Price">
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">Add</button>
+              </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock main %}
