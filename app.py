@@ -90,7 +90,8 @@ def geturl(id):
 
 @app.route("/",methods=["GET"])
 def home():
-    return render_template("index.html",x=users.select())
+    if request.method == "GET":
+        return render_template("index.html",x=users.query.all())
 
 
 @app.route("/dashboard",methods=["GET"])
