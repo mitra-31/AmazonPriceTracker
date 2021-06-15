@@ -88,12 +88,12 @@ def geturl(id):
     return list(data)
 
 
-@app.route("/")
+@app.route("/",methods=["GET"])
 def home():
     return render_template("index.html",x=users.select())
 
 
-@app.route("/dashboard")
+@app.route("/dashboard",methods=["GET"])
 def dashboard():
     data = geturl(session['user'])
     new_data = []
