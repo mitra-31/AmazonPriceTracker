@@ -90,7 +90,7 @@ def geturl(id):
 
 @app.route("/")
 def home():
-    return render_template("index.html",x=False)
+    return render_template("index.html",x=users.select())
 
 
 @app.route("/dashboard")
